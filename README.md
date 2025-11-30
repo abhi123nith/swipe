@@ -18,7 +18,10 @@ A Flutter application for managing products with offline functionality.
 - Image upload functionality for products
 
   ## Video
-  https://github.com/user-attachments/assets/f2555290-26a3-46db-b4fe-e76f6e069259
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/f2555290-26a3-46db-b4fe-e76f6e069259" height="400" controls></video>
+</p>
+
 
 ## 📱 Screenshots
 
