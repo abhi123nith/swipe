@@ -1,4 +1,4 @@
-![Uploading loading.jpg…]()
+![loading](https://github.com/user-attachments/assets/94c0e445-a69a-48cb-8c73-f8310b8bbdae)
 # Swipe Products App
 
 A Flutter application for managing products with offline functionality.
