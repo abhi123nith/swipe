@@ -15,12 +15,15 @@ A Flutter application for managing products with offline functionality.
 - Smooth navigation between screens
 - Image upload functionality for products
 
-## Screenshots
-![product_list](https://github.com/user-attachments/assets/1322fb00-1e85-4d3d-b319-e796fd64b377)
-![sorting](https://github.com/user-attachments/assets/a7b25cba-175e-48a6-86c0-2d4f4090ba23)
-![control_detail](https://github.com/user-attachments/assets/84f06db0-ac89-4751-9fba-44976fdd913a)
-![add_product_screen](https://github.com/user-attachments/assets/5b85e328-28bd-4fa1-b207-77cd35082ea5)
-)
+## 📱 Screenshots
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1322fb00-1e85-4d3d-b319-e796fd64b377" width="23%" />
+  <img src="https://github.com/user-attachments/assets/a7b25cba-175e-48a6-86c0-2d4f4090ba23" width="23%" />
+  <img src="https://github.com/user-attachments/assets/84f06db0-ac89-4751-9fba-44976fdd913a" width="23%" />
+  <img src="https://github.com/user-attachments/assets/5b85e328-28bd-4fa1-b207-77cd35082ea5" width="23%" />
+</p>
+
 
 ## Getting Started
 
