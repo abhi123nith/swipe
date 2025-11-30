@@ -22,8 +22,9 @@ A Flutter application for managing products with offline functionality.
   <img src="https://github.com/user-attachments/assets/a7b25cba-175e-48a6-86c0-2d4f4090ba23" width="20%" />
   <img src="https://github.com/user-attachments/assets/84f06db0-ac89-4751-9fba-44976fdd913a" width="20%" />
   <img src="https://github.com/user-attachments/assets/5b85e328-28bd-4fa1-b207-77cd35082ea5" width="20%" />
-  <img src="https://github.com/user-attachments/assets/94c0e445-a69a-48cb-8c73-f8310b8bbdae" width="20%/>
+  <img src="https://github.com/user-attachments/assets/94c0e445-a69a-48cb-8c73-f8310b8bbdae" width="20%" />
 </p>
+
 
 
 ## Getting Started
