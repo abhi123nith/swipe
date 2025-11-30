@@ -51,7 +51,7 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      // Save to local storage first
+
       final localProduct = LocalProduct(
         productName: productName,
         productType: productType,
@@ -64,7 +64,7 @@ class ProductProvider with ChangeNotifier {
       await HiveHelper.productsBox.add(localProduct);
       _localProducts.add(localProduct);
 
-      // Try to sync with API
+      
       final response = await _apiService.addProduct(
         productName: productName,
         productType: productType,
@@ -78,7 +78,7 @@ class ProductProvider with ChangeNotifier {
         localProduct.isSynced = true;
         await localProduct.save();
 
-        // Also add to the main products list at the beginning
+        
         _products.insert(
           0,
           Product(
@@ -105,7 +105,6 @@ class ProductProvider with ChangeNotifier {
     }
   }
 
-  // Filter products based on search query
   List<Product> filterProducts(String query) {
     if (query.isEmpty) {
       return List.from(_products);
@@ -117,7 +116,6 @@ class ProductProvider with ChangeNotifier {
     }).toList();
   }
 
-  // Sort products by price
   List<Product> sortProductsByPrice(List<Product> products, bool ascending) {
     final sortedProducts = List<Product>.from(products);
     sortedProducts.sort(
@@ -127,7 +125,6 @@ class ProductProvider with ChangeNotifier {
     return sortedProducts;
   }
 
-  // Load local products
   Future<void> loadLocalProducts() async {
     _localProducts = HiveHelper.productsBox.values.toList();
     notifyListeners();

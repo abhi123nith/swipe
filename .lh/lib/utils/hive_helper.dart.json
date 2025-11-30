@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/utils/hive_helper.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764491617860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764491617860,
+            "name": "Commit-0",
+            "content": "import 'package:hive_flutter/hive_flutter.dart';\n\nimport '../models/local_product.dart';\n\nclass HiveHelper {\n  static Box<LocalProduct>? _productsBox;\n\n  static Future<void> init() async {\n    await Hive.initFlutter();\n\n    // Register adapters\n    Hive.registerAdapter(LocalProductAdapter());\n\n    // Open boxes\n    _productsBox = await Hive.openBox<LocalProduct>('products');\n  }\n\n  static Box<LocalProduct> get productsBox {\n    if (_productsBox == null) {\n      throw Exception('Hive not initialized. Call init() first.');\n    }\n    return _productsBox!;\n  }\n\n  static Future<void> closeBoxes() async {\n    await _productsBox?.close();\n  }\n}\n"
+        }
+    ]
+}

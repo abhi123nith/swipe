@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/services/api_service.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764491606948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764491606948,
+            "name": "Commit-0",
+            "content": "import 'dart:convert';\nimport 'dart:io';\nimport 'package:http/http.dart' as http;\nimport '../models/product.dart';\n\nclass ApiService {\n  static const String baseUrl = 'https://app.getswipe.in/api/public';\n  static const String getProductsEndpoint = '$baseUrl/get';\n  static const String addProductEndpoint = '$baseUrl/add';\n\n  /// Fetch all products from the API\n  Future<List<Product>> getProducts() async {\n    try {\n      final response = await http.get(Uri.parse(getProductsEndpoint));\n      \n      if (response.statusCode == 200) {\n        final List<dynamic> jsonData = json.decode(response.body);\n        return jsonData.map((item) => Product.fromJson(item)).toList();\n      } else {\n        throw Exception('Failed to load products: ${response.statusCode}');\n      }\n    } catch (e) {\n      throw Exception('Error fetching products: $e');\n    }\n  }\n\n  /// Add a new product to the API\n  Future<Map<String, dynamic>> addProduct({\n    required String productName,\n    required String productType,\n    required String price,\n    required String tax,\n    File? image,\n  }) async {\n    try {\n      var request = http.MultipartRequest('POST', Uri.parse(addProductEndpoint));\n      \n      request.fields['product_name'] = productName;\n      request.fields['product_type'] = productType;\n      request.fields['price'] = price;\n      request.fields['tax'] = tax;\n      \n      // Add image if provided\n      if (image != null) {\n        var multipartFile = await http.MultipartFile.fromPath(\n          'files[]',\n          image.path,\n        );\n        request.files.add(multipartFile);\n      }\n      \n      final response = await request.send();\n      final responseBody = await response.stream.bytesToString();\n      \n      if (response.statusCode == 200) {\n        return json.decode(responseBody);\n      } else {\n        throw Exception('Failed to add product: ${response.statusCode}');\n      }\n    } catch (e) {\n      throw Exception('Error adding product: $e');\n    }\n  }\n}"
+        }
+    ]
+}

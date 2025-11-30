@@ -6,13 +6,10 @@ class HiveHelper {
   static Box<LocalProduct>? _productsBox;
 
   static Future<void> init() async {
-    // Initialize Hive with Flutter
     await Hive.initFlutter();
 
-    // Register adapters
     Hive.registerAdapter(LocalProductAdapter());
 
-    // Open boxes
     _productsBox = await Hive.openBox<LocalProduct>('products');
   }
 

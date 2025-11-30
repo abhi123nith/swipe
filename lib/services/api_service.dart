@@ -35,13 +35,11 @@ class ApiService {
     try {
       var request = http.MultipartRequest('POST', Uri.parse(addProductEndpoint));
       
-      // Add form fields
       request.fields['product_name'] = productName;
       request.fields['product_type'] = productType;
       request.fields['price'] = price;
       request.fields['tax'] = tax;
       
-      // Add image if provided
       if (image != null) {
         var multipartFile = await http.MultipartFile.fromPath(
           'files[]',

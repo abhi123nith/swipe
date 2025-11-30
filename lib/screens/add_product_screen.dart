@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../providers/product_provider.dart';
 
 class AddProductScreen extends StatefulWidget {
-  const AddProductScreen({Key? key}) : super(key: key);
+  const AddProductScreen({super.key});
 
   @override
   State<AddProductScreen> createState() => _AddProductScreenState();
@@ -28,7 +28,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
   final List<String> _productTypes = ['Product', 'Service'];
 
-  // Function to pick image from gallery
   Future<void> _pickImage() async {
     final XFile? pickedFile = await _picker.pickImage(
       source: ImageSource.gallery,
@@ -66,7 +65,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
       });
 
       if (success) {
-        // Show success snackbar
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -81,12 +79,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
           );
         }
 
-        // Pop immediately to return to the product list
         if (mounted) {
-          Navigator.of(context).pop(true); // Return true to indicate success
+          Navigator.of(context).pop(true); 
         }
       } else {
-        // Show error dialog
         if (mounted) {
           showDialog(
             context: context,
@@ -182,7 +178,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         border: OutlineInputBorder(),
                         prefixText: '₹ ',
                       ),
-                      keyboardType: TextInputType.numberWithOptions(
+                      keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,
                       ),
                       validator: (value) => value == null || value.isEmpty
@@ -199,7 +195,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         border: OutlineInputBorder(),
                         suffixText: '%',
                       ),
-                      keyboardType: TextInputType.numberWithOptions(
+                      keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,
                       ),
                       validator: (value) => value == null || value.isEmpty

@@ -9,7 +9,7 @@ import '../widgets/product_card.dart';
 import 'add_product_screen.dart';
 
 class ProductListScreen extends StatefulWidget {
-  const ProductListScreen({Key? key}) : super(key: key);
+  const ProductListScreen({super.key});
 
   @override
   State<ProductListScreen> createState() => _ProductListScreenState();
@@ -36,11 +36,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
   void _filterAndSortProducts() {
     setState(() {
       if (mounted) {
-        // First filter products
+        
         filteredProducts = productProvider.filterProducts(
           searchController.text,
         );
-        // Then sort based on selected option
+      
         _sortProducts();
       }
     });
@@ -55,7 +55,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
         filteredProducts.sort((a, b) => b.price.compareTo(a.price));
         break;
       default:
-        // Keep original order
+       
         break;
     }
   }
@@ -67,13 +67,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
     super.dispose();
   }
 
-  // Method to refresh products
   void _refreshProducts() {
     final provider = Provider.of<ProductProvider>(context, listen: false);
     provider.loadProducts();
   }
 
-  // Method to show sort options
   void _showSortOptions() {
     showModalBottomSheet(
       context: context,
@@ -155,7 +153,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
       ),
       body: Consumer<ProductProvider>(
         builder: (context, provider, child) {
-          // Update filtered products when the main list changes
           if (provider.products.isNotEmpty) {
             filteredProducts = provider.filterProducts(searchController.text);
             _sortProducts();
@@ -186,7 +183,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   },
                 ),
               ),
-              // Loading Indicator or Product List
               Expanded(
                 child: provider.isLoading
                     ? const Center(
@@ -235,7 +231,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
             context,
             NavigationUtils.createSlideRoute(const AddProductScreen()),
           );
-          // Refresh products when returning from add screen
           if (result == true) {
             _refreshProducts();
           }
