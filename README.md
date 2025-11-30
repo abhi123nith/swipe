@@ -6,6 +6,8 @@ A Flutter application for managing products with offline functionality.
 
 - Product listing with search functionality
 - Add new products with validation
+
+
 - Offline storage using Hive
 - Beautiful UI with smooth animations
 - Loading indicators for network operations
@@ -14,6 +16,9 @@ A Flutter application for managing products with offline functionality.
 - Refresh button to reload product list
 - Smooth navigation between screens
 - Image upload functionality for products
+
+  ## Video
+  https://github.com/user-attachments/assets/f2555290-26a3-46db-b4fe-e76f6e069259
 
 ## 📱 Screenshots
 
